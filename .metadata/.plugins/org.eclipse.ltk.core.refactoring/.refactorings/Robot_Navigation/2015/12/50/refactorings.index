@@ -1,0 +1,11 @@
+1449434801524	Delete element
+1449434806527	Delete element
+1449434816202	Delete elements
+1449434821973	Delete element
+1449444830215	Rename local variable 'TopNode'
+1449444858016	Rename local variable 'DownNode'
+1449447128022	Rename method 'searchInVisitedNodes'
+1449449856791	Encapsulate field 'isVisited'
+1449520147564	Delete element
+1449543407069	Rename local variable 'B'
+1449543528131	Rename field 'DB'

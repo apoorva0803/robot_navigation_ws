@@ -1,0 +1,15 @@
+package application;
+
+/*This class is used to define the vertices of each polygon and 
+ * the heuristic associated with each vertex.
+ */
+
+
+
+public  class Polygon{
+
+	public int vertices_x[];
+	public int vertices_y[];
+	public float vertices_h[];
+	public int n;	
+}

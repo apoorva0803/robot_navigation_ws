@@ -1,0 +1,55 @@
+package util;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Polygon;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.geom.Arc2D;
+
+import model.Coordinates;
+
+/**
+ * Helper class for UI
+ * @author apoorva
+ *
+ */
+public class ShapeUtils {
+
+	public static Shape radiusShape(int points, int... radii)
+	{
+		Polygon polygon = new Polygon();
+
+		for (int i = 0; i < points; i++)
+		{
+			double radians = Math.toRadians(i * 360 / points);
+			int radius = radii[i % radii.length];
+
+			double x = Math.cos(radians) * radius;
+			double y = Math.sin(radians) * radius;
+
+			polygon.addPoint((int)x, (int)y);
+		}
+
+		Rectangle bounds = polygon.getBounds();
+		polygon.translate(-bounds.x, -bounds.y);
+
+		return polygon;
+	}
+
+
+	public static Arc2D drawArc(Coordinates currentNode,Graphics2D g){
+		
+		Arc2D temp= new Arc2D.Double(currentNode.getX()+180,currentNode.getY()-55, 180, 180, 0, 120, Arc2D.PIE);
+		//Arc2D temp= new Arc2D.Double();
+		temp.setArcByCenter(currentNode.getX()+3, currentNode.getY()-3, 150, 0, 120, Arc2D.PIE);
+		Color c=new Color(1.0f,1.0f,0.0f,.3f );
+		g.setColor(c);
+		g.fill(temp);
+		return temp;
+
+//		g.fillArc(currentNode.getX(),currentNode.getY()-120, 180, 350,currentNode.getX()+20,120);
+	}
+
+}

@@ -1,0 +1,60 @@
+package application;
+
+import java.awt.geom.Line2D;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import util.RobotUtils;
+import model.Board;
+import model.Coordinates;
+
+public class Path {
+
+	RobotUtils rUtil;
+	Board board = Board.getBoardInstance();
+	int goal_h=0;
+
+	public void findPath(){
+
+		int initial_h=RobotUtils.calulateDistance(board.getStart(), board.getGoal());		
+
+		while(initial_h!=0){
+
+			isGoalVisibleFromCurrentPosition();
+
+
+
+		}
+
+	}
+
+	private boolean isGoalVisibleFromCurrentPosition(Coordinates currentNode ) {
+		// TODO Auto-generated method stub
+		boolean visibility = false;
+		Iterator<?> it = board.getObstacleMap().entrySet().iterator();
+		Line2D displacement = new Line2D.Double(currentNode.getX(),currentNode.getY(), board.getGoal().getX(),board.getGoal().getY());
+		while(it.hasNext()){
+
+			Map.Entry<Integer, List<Coordinates>> pair = (Map.Entry)it.next();
+			List<Coordinates> coordinateList = pair.getValue();
+
+			int sides=board.getObstacleMap().size();
+
+			for(int i=0;i<sides;i++){
+				Line2D line;
+				if(i==sides-1)
+					line = new Line2D.Double(coordinateList.get(i).getX(),coordinateList.get(i).getY(),  coordinateList.get(0).getX(), coordinateList.get(0).getY());
+				else
+					line = new Line2D.Double(coordinateList.get(i).getX(),coordinateList.get(i).getY(), coordinateList.get(i+1).getX(), coordinateList.get(i+1).getY());
+				
+				if(line.intersectsLine(displacement)){
+					isIntersecting = true;
+					
+				}	
+			}
+			
+		}
+		return visibility;
+	}	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Robot_Navigation&apos; to &apos;Robot_Navigation_apu&apos;" description="Rename resource &apos;Robot_Navigation&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Robot_Navigation" name="Robot_Navigation_apu" stamp="1449432803236" updateReferences="true"/>
+</session>

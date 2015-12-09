@@ -1,0 +1,18 @@
+package model;
+
+public class Circle extends Coordinates {
+
+	int radius;
+	double centerX;
+	double centerY;
+	
+	public int getRadius() {
+		return radius;
+	}
+
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
+
+		
+}
